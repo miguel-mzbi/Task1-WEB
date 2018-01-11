@@ -24,8 +24,8 @@ http.createServer(function(request, response) {
 	}
 
 }).listen(PORT, () => {
-	console.log('Server listening on: http://localhost:%s', PORT);
-  });
+  console.log('Server listening on: http://localhost:%s', PORT);
+});
 
 function sendFileContent(response, fileName, contentType){
 	fs.readFile(fileName, function(err, data){
