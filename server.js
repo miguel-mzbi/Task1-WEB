@@ -20,6 +20,7 @@ http.createServer(function(request, response) {
 		console.log("Requested URL is: " + request.url);
 		response.end();
 	}
+	
 }).listen(8080);
 
 function sendFileContent(response, fileName, contentType){
