@@ -17,6 +17,9 @@ http.createServer(function(request, response) {
 	else if(/^\/[a-zA-Z0-9\/]*.js$/.test(request.url.toString())){
 		sendFileContent(response, request.url.toString().substring(1), "text/javascript");
 	}
+	else if(/^\/[a-zA-Z0-9\/]*.jpg$/.test(request.url.toString())){
+		sendFileContent(response, request.url.toString().substring(1), "image/jpeg");
+	}
 	else if(/^\/[a-zA-Z0-9\/]*.css$/.test(request.url.toString())){
 		sendFileContent(response, request.url.toString().substring(1), "text/css");
 	}
