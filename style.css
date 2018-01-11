@@ -79,5 +79,6 @@ li:before {
   font-family: "Lucida Console", Monaco, monospace;
   display: inline-block;
   margin-left: -1.3em; /* same as padding-left set on li */
+  margin-bottom: 1.5em;
   width: 1.3em; /* same as padding-left set on li */
 }
