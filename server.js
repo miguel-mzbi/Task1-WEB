@@ -1,7 +1,9 @@
+const PORT = process.env.PORT || 8080;
+
 var http = require('http');
 var fs = require("fs");
-
-const PORT = process.env.PORT || 8080;
+var mongodb = require("mongodb");
+var db;
 
 http.createServer(function(request, response) {
 
