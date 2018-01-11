@@ -1,6 +1,8 @@
 var http = require('http');
 var fs = require("fs");
 
+const PORT = process.env.PORT || 8080;
+
 http.createServer(function(request, response) {
 
 	if(request.url === "/index"){
@@ -21,7 +23,9 @@ http.createServer(function(request, response) {
 		response.end();
 	}
 
-}).listen(80);
+}).listen(PORT, () => {
+	console.log('Server listening on: http://localhost:%s', PORT);
+  });
 
 function sendFileContent(response, fileName, contentType){
 	fs.readFile(fileName, function(err, data){
