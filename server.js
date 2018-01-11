@@ -2,13 +2,38 @@ const PORT = process.env.PORT || 8080;
 
 var http = require('http');
 var fs = require("fs");
-var mongodb = require("mongodb");
-var db;
+var mongoURL = process.env.MONGOLAB_URI;
+
+var mLab = require('mongolab-data-api')('oQbIzLHtooOzykPrjE-Zqw9N-dnzCSvt');
+
+var options = {
+	database: 'task1-web',
+	collectionName: 'task1data',
+}
+console.log(mLab.listDocuments(options, function(){}))
+
+/*
+mLab.listCollections('task1-web', function (err, collections) {
+	console.log(collections); // => [coll1, coll2, ...]
+});
+var options = {
+	database: 'task1-web',
+	collectionName: 'task1data',
+	documents: { "TeamName": "Notioli" }
+};
+mLab.insertDocuments(options, function(){});*/
 
 http.createServer(function(request, response) {
 
 	if(request.url === "/index"){
 		sendFileContent(response, "index.html", "text/html");
+	}
+	else if (request.url === "/title") {
+		var options = {
+			database: 'task1-web',
+			collectionName: 'task1data',
+		};
+		response.write(mLab.listDocuments(options))
 	}
 	else if(request.url === "/"){
 		response.writeHead(200, {'Content-Type': 'text/html'});

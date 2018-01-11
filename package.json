@@ -6,6 +6,7 @@
         "start": "node server.js"
     },
     "dependencies": {
-        "mongodb": "^2.1.6"
+        "mongodb": "^2.1.6",
+        "mongolab-data-api": "^1.1.6"
     }
 }
