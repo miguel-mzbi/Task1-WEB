@@ -29,7 +29,8 @@ http.createServer(function(request, response) {
 		};
 		mLab.listDocuments(options, function (err, collections) {
 			console.log(collections);
-			response.write(collections[0].TeamName);
+			response.writeHead(200, {'Content-Type': 'text/html'});
+			response.write('<b>'+collections[0].TeamName+'</b>');
 		});
 	}
 	else if(request.url === "/"){
